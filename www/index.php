@@ -1,5 +1,7 @@
 <?php
 
+ob_start();
+
 // I route basically everything through this, since the site is so simple.
 
 $url = parse_url($_GET['url']);
