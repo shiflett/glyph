@@ -1,5 +1,7 @@
 <?php
 
+// I route basically everything through this, since the site is so simple.
+
 $url = parse_url($_GET['url']);
 
 switch ($url['path']) {
@@ -9,11 +11,18 @@ switch ($url['path']) {
     case 'edition/':
     case 'edition':
         if (!isset($_GET['delivery_count'])) {
-            // Delivery count not set. Should never happen.
             $edition = 1;
         } else {
             $edition = (int)$_GET['delivery_count'] + 1;
         }
+
+        // Get available editions from DropBox.
+        $dir = opendir('../dropbox');
+        echo '<!--';
+        while ($filename = readdir($dir)) {
+            echo "{$filename}\n";
+        }
+        echo '-->';
 
         if (!file_exists("../inc/{$edition}.inc")) {
             // Edition not found. TODO: Send latest.
