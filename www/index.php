@@ -47,11 +47,11 @@ switch ($url['path']) {
     default:
         if (substr($_GET['url'], -4) == '.png') {
             $image = basename($_GET['url']);
-            $name = substr($_GET['url'], 0, strlen($_GET['url'] - 4));
+            $name = substr($_GET['url'], 0, strlen($_GET['url']) - 4);
 
             if ($edition = array_search($name, $editions)) {
                 header('Content-Type: image/png');
-                $filename = sprintf('../dropbox/%04d-%s/index.html', $edition, $editions[$edition]);
+                $filename = sprintf('../dropbox/%04d-%s/%s.png', $edition, $editions[$edition], $editions[$edition]);
                 readfile($filename);
             }
         } elseif ($url['path'] != '') {

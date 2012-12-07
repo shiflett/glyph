@@ -1,4 +1,3 @@
-<?php header('Content-Type: text/plain'); ?>
 {
   "owner_email": "chris@monographic.org",
   "publication_api_version": "1.0",
