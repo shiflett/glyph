@@ -30,15 +30,15 @@ switch ($url['path']) {
         }
         asort($editions);
 
-        if (!file_exists("../inc/{$edition}.inc")) {
-            // Edition not found. TODO: Send latest.
-            echo "<p>Edition {$edition} not found.</p>";
-            exit;
+        if (!isset($editions[$edition])) {
+            $edition = count($editions);
         }
 
-	$etag = md5(file_get_contents("../inc/{$edition}.inc"));
+        $filename = sprintf('../dropbox/%4d-%s/index.html');
+
+        $etag = md5(file_get_contents($filename));
         header("ETag: $etag");
-        readfile("../inc/{$edition}.inc");
+        readfile($filename);
         break;
     case 'sample/':
     case 'sample':
