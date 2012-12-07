@@ -34,7 +34,7 @@ switch ($url['path']) {
             $edition = count($editions);
         }
 
-        $filename = sprintf('../dropbox/%4d-%s/index.html');
+        $filename = sprintf('../dropbox/%4d-%s/index.html', $edition, $editions[$edition]);
 
         $etag = md5(file_get_contents($filename));
         header("ETag: $etag");
