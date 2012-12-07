@@ -19,11 +19,15 @@ switch ($url['path']) {
         }
 
         // Get available editions from DropBox.
+        $editions = array();
         $dir = opendir('../dropbox');
         echo '<!--';
         while ($filename = readdir($dir)) {
-            echo "{$filename}\n";
+            if (ctype_digit(substr($filename, 0, 4))) {
+                list($number, $name) = explode($filename, '-');
+                $editions[$number] = $name;
         }
+        print_r($editions);
         echo '-->';
 
         if (!file_exists("../inc/{$edition}.inc")) {
