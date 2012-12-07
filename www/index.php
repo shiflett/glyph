@@ -47,7 +47,7 @@ switch ($url['path']) {
     default:
         if (substr($_GET['url'], -4) == '.png') {
             $image = basename($_GET['url']);
-            $name = substr($_GET['url'], 0, strlen($_GET['url']) - 4);
+            $name = substr($image, 0, strlen($_GET['url']) - 4);
 
             if ($edition = array_search($name, $editions)) {
                 header('Content-Type: image/png');
