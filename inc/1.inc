@@ -9,13 +9,13 @@
 	body
 	{
 	margin: 0px;
-	font: 14px Georgia, serif;
+	font: 18px Georgia, serif;
 	line-height: 1.4;
 	text-align: center;
 	color: #000;
 	}
 	
-	#article
+	article
 	{
 	margin:0 auto;
 	padding: 30px 15px;
@@ -23,7 +23,7 @@
 	background-color: #FFF;
 	}
 	
-	.header
+	header
 	{
 	padding: 10px 0;
 	border-top: 5px solid #000;
@@ -38,14 +38,15 @@
 	
 	h2
 	{
-	font-size: 15px;
+	font-size: 18px;
+	font-weight: normal;
 	margin: 0;
 	}
 	
 	.illustration
 	{
-	height: 304px;
-	margin: 10px 0 13px 0;
+	display: block;
+	margin: 10px 0;
 	}
 	
 	.caption
@@ -66,26 +67,23 @@
     </style>
 </head>
 <body>
-  <div id="article">
-
-    <div class="header">
+  <article>
+  
+    <header>
       <h1>Glyph</h1>
       <h2>A Tiny Tome on Typography</h2>
-    </div>
+    </header>
     
-    <div class="illustration">
-      <img src="a-taz-hair-14.png" alt="Taz Hair 14 – 'a'." width="354" height="304">
-    </div>
+    <img class="illustration" src="a-taz-hair-14.png" alt="Taz Hair 14 – 'a'." width="354" height="304">
 
-    <p class="caption"><b>Taz Hair 14</b> by <b>Luc(as) de Groot</b></p>
+    <p class="caption"><b>Taz Hair 14</b><br /> by Luc(as) de Groot</p>
     
     <div class="microreview">
       <p><b>Taz III</b>, by Dutch designer Luc(as) de Groot, takes the idea of a typographic superfamily to dizzying new heights. Available in a staggering fifteen weights with accompanying italics, it’s a true workhorse of a typeface. Designed as a space-saving headline family for newspapers, the hairlines are particularly pleasing. Use them large for a light and airy feel.</p>
       
-      <p>http://getglyph.org/a/taz-hair-14</p>
+      <p>getglyph.org/a/taz-hair-14</p>
     </div>
-
-  </div> <!-- /article -->
+    
+  </article>
 </body>
 </html>
-

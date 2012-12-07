@@ -21,15 +21,14 @@ switch ($url['path']) {
         // Get available editions from DropBox.
         $editions = array();
         $dir = opendir('../dropbox');
-        echo '<!--';
+
         while ($filename = readdir($dir)) {
             if (ctype_digit(substr($filename, 0, 4))) {
-                list($number, $name) = explode($filename, '-');
-                $editions[$number] = $name;
+                list($number, $name) = explode('-', $filename, 2);
+                $editions[(int)$number] = $name;
             }
         }
-        print_r($editions);
-        echo '-->';
+        asort($editions);
 
         if (!file_exists("../inc/{$edition}.inc")) {
             // Edition not found. TODO: Send latest.
